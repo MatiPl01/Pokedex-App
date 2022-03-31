@@ -1,10 +1,11 @@
 @use 'sass:math';
 @use '../utils/colors' as c;
+@use '../utils/sizes' as sz;
 
 
 .theme-switch {
-  $height: 4rem;
-  $width: 8rem;
+  $height: .6 * sz.$nav-bar-height;
+  $width: 2 * $height;
   $notch-size: .9 * $height;
   $notch-padding: math.div($height - $notch-size, 2);
 
