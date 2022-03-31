@@ -1,16 +1,23 @@
-import { Component } from "react";
+import { Component, Fragment } from "react";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/nav-bar/nav-bar.component";
-import ListView from "./views/list/list-view.component";
-
+import DetailsView from "./views/details/details-view.component";
+import HomeView from "./views/home/home-view.component";
+import PokemonsView from "./views/pokemons/pokemons-view.component";
 
 class App extends Component {
   render() {
     return (
-      <div className="app">
+      <Fragment>
         <NavBar />
-        <ListView />
-      </div>
+        <main className="main home">    
+          <Routes>
+            <Route path='/' element={<HomeView />} />
+            <Route path='/pokemon' element={<PokemonsView />} />
+            <Route path="/pokemon/:id" element={<DetailsView />} />
+          </Routes>
+        </main>
+      </Fragment>
     )
   }
 }

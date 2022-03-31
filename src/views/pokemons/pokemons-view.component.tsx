@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, Fragment } from "react";
 import PokemonList from '../../components/pokemon-list/pokemon-list.component';
 
 
@@ -11,7 +11,7 @@ interface IState {
   }[]
 }
 
-class ListView extends Component<IProps, IState> {
+class PokemonsView extends Component<IProps, IState> {
   private static readonly LOADED_POKEMONS_COUNT = 20;
   private currOffset = 0;
 
@@ -24,7 +24,7 @@ class ListView extends Component<IProps, IState> {
   }
 
   async componentDidMount() {
-    this.loadNewPokemons(ListView.LOADED_POKEMONS_COUNT)
+    this.loadNewPokemons(PokemonsView.LOADED_POKEMONS_COUNT)
   }
 
   private async loadNewPokemons(count: number) {
@@ -44,12 +44,12 @@ class ListView extends Component<IProps, IState> {
 
   render() {
     return (
-      <main className="main home">
-        <PokemonList pokemons={this.state.pokemons} />
-        <button className="button button--main" onClick={() => this.loadNewPokemons(ListView.LOADED_POKEMONS_COUNT)}>Load more Pokemons</button>
-    </main>
+    <Fragment>
+      <PokemonList pokemons={this.state.pokemons} />
+      <button className="button button--main" onClick={() => this.loadNewPokemons(PokemonsView.LOADED_POKEMONS_COUNT)}>Load more Pokemons</button>
+    </Fragment>
     )
   }
 }
 
-export default ListView;
+export default PokemonsView;

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import ThemeSwitch from "../theme-switch/theme-switch.component";
 
 class NavBar extends Component {
@@ -8,18 +9,17 @@ class NavBar extends Component {
     return (
       <nav className="nav-bar">
         <div className="nav-bar__group">
-          {/* TODO - use better logo */}
-          <a className="nav-bar__logo" href="#">
+          <Link className="nav-bar__logo" to="/">
             <img className="nav-bar__logo-icon" src="/icons/svg/pokeball.svg" alt="Pokeball logo"></img>
             <h2 className="nav-bar__logo-text">{NavBar.LOGO_TEXT}</h2>
-          </a>
+          </Link>
 
           <ul className="nav-bar__links">
             <li>
-              <a className="nav-bar__link" href="#">Home</a>
+              <Link className="nav-bar__link" to="/">Home</Link>
             </li>
             <li>
-              <a className="nav-bar__link" href="#">List</a>
+              <Link className="nav-bar__link" to="/pokemon">Pokemons</Link>
             </li>
           </ul>
         </div>

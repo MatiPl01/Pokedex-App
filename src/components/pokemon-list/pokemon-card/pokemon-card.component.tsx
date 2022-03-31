@@ -1,5 +1,5 @@
-import { type } from "os";
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import { IPokemonData } from "../../../interfaces/IPokemonData";
 
 
@@ -49,7 +49,7 @@ class PokemonCard extends Component<IProps, IState> {
 
     return (
         <article className="pokemon-card" key={data.id}>
-          <a className="pokemon-card__link" href="#">
+          <Link className="pokemon-card__link" to={`${data.id}`}>
             <figure className="pokemon-card__figure" data-type={data.types[0]}>
               <div className="pokemon-card__image-wrapper">
                 <img className="pokemon-card__image" src={data.sprite} alt={data.name} />
@@ -72,7 +72,7 @@ class PokemonCard extends Component<IProps, IState> {
                 }
               </ul>
             </header>
-          </a>
+          </Link>
         </article>
     )
   }
