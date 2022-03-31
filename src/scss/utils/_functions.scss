@@ -1,0 +1,12 @@
+@use '../utils/colors' as c;
+
+
+@function get-pokemon-type-color($type, $shade) {
+  @return map-get(map-get(c.$pokemon-types, $type), $shade);
+}
+
+@function get-pokemon-type-gradient($type) {
+  $c-primary:   get-pokemon-type-color($type, primary);
+  $c-secondary: get-pokemon-type-color($type, secondary);
+  @return linear-gradient($c-primary, $c-secondary) mix($c-primary, $c-secondary);
+}

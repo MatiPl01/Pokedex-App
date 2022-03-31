@@ -1,14 +1,16 @@
 import { Component } from "react";
 
+
 class ThemeSwitch extends Component {
   onToggle(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.checked);
+    const theme = e.target.checked ? 'dark' : 'light';
+    document.body.setAttribute('data-theme', theme);
   }
 
   render() {
     return (
       <button className="theme-switch">
-        <input className="theme-switch__checkbox" type="checkbox" name="theme-switch-checkbox" id="theme-switch-checkbox" />
+        <input className="theme-switch__checkbox" type="checkbox" name="theme-switch-checkbox" id="theme-switch-checkbox" onChange={this.onToggle} />
 
         <label className="theme-switch__label" htmlFor="theme-switch-checkbox">
           <div className="theme-switch__notch">

@@ -15,9 +15,9 @@ class PokemonList extends Component<IProps> {
 
     return (
         <ul className="pokemon-list">
-          { pokemons.map(pokemon => {
+          { pokemons.map((pokemon, idx) => {
             return (
-              <li className="pokemon-list__item" key={pokemon.name}>
+              <li className="pokemon-list__item" key={idx}>
                 <PokemonCard url={pokemon.url} />
               </li>
             )

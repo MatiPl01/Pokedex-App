@@ -48,8 +48,7 @@ class PokemonCard extends Component<IProps, IState> {
     if (!data) return; // Todo - add loading animation
 
     return (
-        // TODO - replace data.name (key) with pokemon id
-        <article className="pokemon-card" key={data.name}>
+        <article className="pokemon-card" key={data.id}>
           <a className="pokemon-card__link" href="#">
             <figure className="pokemon-card__figure" data-type={data.types[0]}>
               <div className="pokemon-card__image-wrapper">
@@ -61,7 +60,7 @@ class PokemonCard extends Component<IProps, IState> {
             <header className="pokemon-card__header">
               <h3 className="pokemon-card__name">{data.name}</h3>
               <ul className="pokemon-card__types">{
-                  data.types.map((type: string, idx: number) => {
+                  data.types.map((type, idx) => {
                     return (
                       <li className="pokemon-card__types-item" key={idx}>
                         <p className="pokemon-card__type">{type}</p>

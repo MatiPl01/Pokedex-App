@@ -7,9 +7,15 @@ $gray-light-3: #ccc;
 $gray-light-4: #a3a3a3;
 
 $gray-dark-1: #111;
-$gray-dark-2: #333;
-$gray-dark-3: #575757;
-$gray-dark-4: #767676;
+$gray-dark-2: #222;
+$gray-dark-3: #333;
+$gray-dark-4: #575757;
+
+// $accent-primary: #2e80eb;
+// $accent-primary-dark: #3268b0;
+
+// $accent-secondary: #ffcb00;
+// $accent-secondary-dark: #c7a00d;
 
 // Theme (day / night) switch colors
 $theme-switch-sun: #ffe030;
@@ -23,57 +29,77 @@ $theme-switch-star: lightgray;
 $theme-switch-star-glow: violet;
 
 // Pokemon types colors
-$pokemon-normal-primary:     #c998a7;
-$pokemon-normal-secondary:   #75515b;
-
-$pokemon-fighting-primary:   #ef6138;
-$pokemon-fighting-secondary: #994025;
-
-$pokemon-flying-primary:     #93b2c7;
-$pokemon-flying-secondary:   #4a677d;
-
-$pokemon-poison-primary:     #9b69d9;
-$pokemon-poison-secondary:   #5e2d88;
-
-$pokemon-ground-primary:     #6e491f;
-$pokemon-ground-secondary:   #a9702c;
-
-$pokemon-rock-primary:       #8b3e21;
-$pokemon-rock-secondary:     #48180b;
-
-$pokemon-bug-primary:        #3b9950;
-$pokemon-bug-secondary:      #1c4b27;
-
-$pokemon-ghost-primary:      #906790;
-$pokemon-ghost-secondary:    #33326d;
-
-$pokemon-steel-primary:      #42bd94;
-$pokemon-steel-secondary:    #5f756d;
-
-$pokemon-fire-primary:       #fd4c5a;
-$pokemon-fire-secondary:     #a92023;
-
-$pokemon-water-primary:      #86a8fc;
-$pokemon-water-secondary:    #1552e2;
-
-$pokemon-grass-primary:      #26cb4f;
-$pokemon-grass-secondary:    #147b3d;
-
-$pokemon-electric-primary:   #fbfb70;
-$pokemon-electric-secondary: #e3e32d;
-
-$pokemon-psychic-primary:    #f81c91;
-$pokemon-psychic-secondary:  #a42a6c;
-
-$pokemon-ice-primary:        #d8f0fa;
-$pokemon-ice-secondary:      #92c6e5;
-
-$pokemon-dragon-primary:     #61cad7;
-$pokemon-dragon-secondary:   #498b99;
-
-$pokemon-dark-primary:       #5a5979;
-$pokemon-dark-secondary:     #040706;
-
-$pokemon-fairy-primary:      #ea1369;
-$pokemon-fairy-secondary:    #971944;
-
+$pokemon-types: (
+  normal: (
+    primary: #c998a7,
+    secondary: #75515b
+  ),
+  fighting: (
+    primary: #ef6138,
+    secondary: #994025
+  ),
+  flying: (
+    primary: #93b2c7,
+    secondary: #4a677d
+  ),
+  poison: (
+    primary: #9b69d9,
+    secondary: #5e2d88
+  ),
+  ground: (
+    primary: #6e491f,
+    secondary: #a9702c
+  ),
+  rock: (
+    primary: #8b3e21,
+    secondary: #48180b
+  ),
+  bug: (
+    primary: #3b9950,
+    secondary: #1c4b27
+  ),
+  ghost: (
+    primary: #906790,
+    secondary: #33326d
+  ),
+  steel: (
+    primary: #42bd94,
+    secondary: #5f756d
+  ),
+  fire: (
+    primary: #fd4c5a,
+    secondary: #a92023
+  ),
+  water: (
+    primary: #86a8fc,
+    secondary: #1552e2
+  ),
+  grass: (
+    primary: #26cb4f,
+    secondary: #147b3d
+  ),
+  electric: (
+    primary: #fbfb70,
+    secondary: #e3e32d
+  ),
+  psychic: (
+    primary: #f81c91,
+    secondary: #a42a6c
+  ),
+  ice: (
+    primary: #d8f0fa,
+    secondary: #92c6e5
+  ),
+  dragon: (
+    primary: #61cad7,
+    secondary: #498b99
+  ),
+  dark: (
+    primary: #5a5979,
+    secondary: #040706
+  ),
+  fairy: (
+    primary: #ea1369,
+    secondary: #971944
+  )
+);

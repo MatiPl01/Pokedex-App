@@ -2,7 +2,6 @@ import { Component } from "react";
 import NavBar from "./components/nav-bar/nav-bar.comonent";
 import PokemonList from './components/pokemon-list/pokemon-list.component'
 
-
 interface IProps {}
 
 interface IState {
@@ -50,7 +49,7 @@ class App extends Component<IProps, IState> {
         <NavBar />
         <main className="main home">
           <PokemonList pokemons={this.state.pokemons} />
-          <button className="button button--light" onClick={() => this.loadNewPokemons(App.LOADED_POKEMONS_COUNT)}>Load more Pokemons</button>
+          <button className="button button--main" onClick={() => this.loadNewPokemons(App.LOADED_POKEMONS_COUNT)}>Load more Pokemons</button>
         </main>
       </div>
     )

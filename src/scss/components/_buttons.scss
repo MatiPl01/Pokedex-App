@@ -10,9 +10,9 @@
   font-size: 1.4rem;
   text-transform: uppercase;
   font-weight: bold;
-  color: c.$gray-dark-3;
+  color: var(--primary-1);
   
-  &--light {
-    background-color: c.$gray-light-1;
+  &--main {
+    background-color: var(--secondary-2);
   }
 }

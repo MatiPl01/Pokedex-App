@@ -1,0 +1,18 @@
+@use '../utils/colors' as c;
+
+:root,
+body[data-theme=light] {
+  // Light colors
+  --primary: #{c.$white};
+  --primary-1: #{c.$gray-light-1};
+  --primary-2: #{c.$gray-light-2};
+  --primary-3: #{c.$gray-light-3};
+  --primary-4: #{c.$gray-light-4};
+
+  // Dark colors
+  --secondary: #{c.$black};
+  --secondary-1: #{c.$gray-dark-1};
+  --secondary-2: #{c.$gray-dark-2};
+  --secondary-3: #{c.$gray-dark-3};
+  --secondary-4: #{c.$gray-dark-4};
+}
