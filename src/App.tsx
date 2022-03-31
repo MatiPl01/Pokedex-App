@@ -37,17 +37,22 @@ class App extends Component<IProps, IState> {
     this.currOffset += count;
 
     this.setState({
-      ...this.state,
-      pokemons
+      pokemons: [
+        ...this.state.pokemons,
+        ...pokemons
+      ]
     });
   }
 
   render() {
     return (
-        <div className="app">
-          <NavBar />
+      <div className="app">
+        <NavBar />
+        <main className="main home">
           <PokemonList pokemons={this.state.pokemons} />
-        </div>
+          <button className="button button--light" onClick={() => this.loadNewPokemons(App.LOADED_POKEMONS_COUNT)}>Load more Pokemons</button>
+        </main>
+      </div>
     )
   }
 }

@@ -1,0 +1,20 @@
+@use '../utils/colors' as c;
+
+// Window scrollbar
+::-webkit-scrollbar {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  &-thumb {
+    background: c.$gray-light-4;
+    border-radius: 1rem;
+
+    &:hover {
+      background: c.$gray-dark-4;
+    }
+  }
+
+  &-track {
+    background-color: c.$gray-light-2;
+  }
+}

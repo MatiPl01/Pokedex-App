@@ -1,0 +1,18 @@
+@use '../utils/colors' as c;
+@use '../utils/shadows' as sh;
+
+
+.button {
+  border-radius: 5rem;
+  box-shadow: sh.$black-light-large,
+              sh.$black-light-small;
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: c.$gray-dark-3;
+  
+  &--light {
+    background-color: c.$gray-light-1;
+  }
+}

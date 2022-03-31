@@ -1,3 +1,4 @@
+import { type } from "os";
 import { Component } from "react";
 import { IPokemonData } from "../../../interfaces/IPokemonData";
 
@@ -17,7 +18,9 @@ class PokemonCard extends Component<IProps, IState> {
     this.state = {
       pokemonData: null
     };
+  }
 
+  componentDidMount() {
     this.loadPokemonData();
   }
 
@@ -45,7 +48,31 @@ class PokemonCard extends Component<IProps, IState> {
     if (!data) return; // Todo - add loading animation
 
     return (
-      <img src={data.sprite} alt={data.name} />
+        // TODO - replace data.name (key) with pokemon id
+        <article className="pokemon-card" key={data.name}>
+          <a className="pokemon-card__link" href="#">
+            <figure className="pokemon-card__figure" data-type={data.types[0]}>
+              <div className="pokemon-card__image-wrapper">
+                <img className="pokemon-card__image" src={data.sprite} alt={data.name} />
+              </div>
+              <figcaption className="pokemon-card__caption">{data.name}</figcaption>
+            </figure>
+
+            <header className="pokemon-card__header">
+              <h3 className="pokemon-card__name">{data.name}</h3>
+              <ul className="pokemon-card__types">{
+                  data.types.map((type: string, idx: number) => {
+                    return (
+                      <li className="pokemon-card__types-item" key={idx}>
+                        <p className="pokemon-card__type">{type}</p>
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+            </header>
+          </a>
+        </article>
     )
   }
 }

@@ -1,0 +1,233 @@
+@use '../utils/mixins' as *;
+@use '../utils/colors' as c;
+@use '../utils/gradients' as g;
+@use '../utils/shadows' as sh;
+
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: .5rem;
+  box-shadow: sh.$black-normal-medium;
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__figure {
+    position: relative;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+
+    // Set figure proportion to 3/2
+    &::before {
+      content: '';
+      display: block;
+      padding-bottom: 67%;
+    }
+  }
+
+  &__image-wrapper {
+    left: 50%;
+    bottom: 15%;
+    width: 65%;
+    height: 100%;
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 15%;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: radial-gradient(rgba(c.$black, .5), transparent 65%);
+      z-index: -1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    filter: drop-shadow(sh.$black-normal-medium);
+  }
+
+  &__caption {
+    position: absolute;
+    font-size: 5vw;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: white;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) skewX(-10deg) skewY(-5deg);
+    mix-blend-mode: soft-light;
+  }
+
+  &__header {
+    padding: 1rem 2rem;
+  }
+
+  &__name {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 1.8rem;
+    color: c.$gray-dark-1;
+  }
+
+  &__types {
+    margin-top: .5rem;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__types-item {
+    padding: .4rem .75rem;
+    border-top-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    box-shadow: sh.$black-light-medium;
+  }
+
+  &__type {
+    color: c.$white;
+    text-shadow: sh.$black-strong-medium,
+                 sh.$black-strong-small;
+  }
+
+  &__figure {
+    // Use different colors for different pokemon types
+    &[data-type=normal] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-normal;
+      }
+    }
+
+    &[data-type=fighting] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-fighting;
+      }
+    }
+
+    &[data-type=flying] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-flying;
+      }
+    }
+
+    &[data-type=poison] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-poison;
+      }
+    }
+
+    &[data-type=ground] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-ground;
+      }
+    }
+
+    &[data-type=rock] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-rock;
+      }
+    }
+
+    &[data-type=bug] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-bug;
+      }
+    }
+
+    &[data-type=ghost] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-ghost;
+      }
+    }
+
+    &[data-type=steel] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-steel;
+      }
+    }
+
+    &[data-type=fire] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-fire;
+      }
+    }
+
+    &[data-type=water] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-water;
+      }
+    }
+
+    &[data-type=grass] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-grass;
+      }
+    }
+
+    &[data-type=electric] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-electric;
+      }
+    }
+
+    &[data-type=psychic] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-psychic;
+      }
+    }
+
+    &[data-type=ice] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-ice;
+      }
+    }
+
+    &[data-type=dragon] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-dragon;
+      }
+    }
+
+    &[data-type=dark] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-dark;
+      }
+    }
+
+    &[data-type=fairy] { 
+      &,
+      & + .pokemon-card__header .pokemon-card__types-item {
+        background: g.$pokemon-fairy;
+      }
+    }
+  }
+}
