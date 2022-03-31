@@ -1,0 +1,37 @@
+@use '../utils/colors' as c;
+@use '../utils/shadows' as sh;
+@use '../utils/sizes' as sz;
+@use '../utils/mixins' as *;
+
+
+.nav-bar {
+  height: sz.$nav-bar-height;
+  box-shadow: sh.$black-normal-medium;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+
+  &__group {
+    display: flex;
+    gap: 3rem;
+  }
+
+  &__logo {
+    font-size: 3rem;
+    padding-bottom: .75rem;
+    @include flex-center;
+  }
+
+  &__links,
+  &__settings {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+  }
+}
