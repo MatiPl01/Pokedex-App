@@ -1,56 +1,15 @@
 import { Component } from "react";
-import NavBar from "./components/nav-bar/nav-bar.comonent";
-import PokemonList from './components/pokemon-list/pokemon-list.component'
-
-interface IProps {}
-
-interface IState {
-  pokemons: {
-    name: string,
-    url: string
-  }[]
-}
+import { Routes, Route } from "react-router-dom";
+import NavBar from "./components/nav-bar/nav-bar.component";
+import ListView from "./views/list/list-view.component";
 
 
-class App extends Component<IProps, IState> {
-  private static readonly LOADED_POKEMONS_COUNT = 20;
-  private currOffset = 0;
-
-  constructor(props: IProps) {
-    super(props);
-
-    this.state = {
-      pokemons: []
-    }
-  }
-
-  async componentDidMount() {
-    this.loadNewPokemons(App.LOADED_POKEMONS_COUNT)
-  }
-
-  private async loadNewPokemons(count: number) {
-    const query = `https://pokeapi.co/api/v2/pokemon?limit=${count}&offset=${this.currOffset}`;
-    const response = await fetch(query);
-    const json = await response.json();
-    const pokemons = json.results
-    this.currOffset += count;
-
-    this.setState({
-      pokemons: [
-        ...this.state.pokemons,
-        ...pokemons
-      ]
-    });
-  }
-
+class App extends Component {
   render() {
     return (
       <div className="app">
         <NavBar />
-        <main className="main home">
-          <PokemonList pokemons={this.state.pokemons} />
-          <button className="button button--main" onClick={() => this.loadNewPokemons(App.LOADED_POKEMONS_COUNT)}>Load more Pokemons</button>
-        </main>
+        <ListView />
       </div>
     )
   }

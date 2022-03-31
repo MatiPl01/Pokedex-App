@@ -6,11 +6,11 @@
   height: 1.5rem;
 
   &-thumb {
-    background: var(--primary-4);
+    background-color: var(--primary-4);
     border-radius: 1rem;
 
     &:hover {
-      background: var(--secondary-4);
+      background-color: var(--secondary-4);
     }
   }
 

@@ -18,6 +18,9 @@ class NavBar extends Component {
             <li>
               <a className="nav-bar__link" href="#">Home</a>
             </li>
+            <li>
+              <a className="nav-bar__link" href="#">List</a>
+            </li>
           </ul>
         </div>
 

@@ -14,5 +14,6 @@
   
   &--main {
     background-color: var(--secondary-2);
+    transition: background-color .3s ease;
   }
 }

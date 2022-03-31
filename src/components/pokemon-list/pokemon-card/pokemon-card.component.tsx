@@ -54,7 +54,9 @@ class PokemonCard extends Component<IProps, IState> {
               <div className="pokemon-card__image-wrapper">
                 <img className="pokemon-card__image" src={data.sprite} alt={data.name} />
               </div>
-              <figcaption className="pokemon-card__caption">{data.name}</figcaption>
+              <figcaption className="pokemon-card__caption">
+                <p className="pokemon-card__caption-text">{data.name}</p>
+              </figcaption>
             </figure>
 
             <header className="pokemon-card__header">
