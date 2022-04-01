@@ -48,7 +48,7 @@ class SearchBox extends Component<IProps, IState> {
       pokemons,
       filteredPokemons: search ? pokemons.filter(pokemon => {
         return pokemon.name.toLowerCase().includes(search);
-      }) : []
+      }).sort((a, b) => a.name.indexOf(search) - b.name.indexOf(search)) : []
     })
   }
 
@@ -62,7 +62,7 @@ class SearchBox extends Component<IProps, IState> {
 
     return (
       <article className="search-box">
-        <input className="search-box__input" type="text" name="search-pokemon" id="search-pokemon" placeholder="Search pokemon" onInput={this.handleInput.bind(this)} />
+        <input className="search-box__input" type="text" name="search-pokemon" id="search-pokemon" placeholder="Search pokemon by name" onInput={this.handleInput.bind(this)} />
 
         <ul className="search-box__hints">
           { pokemons.map((pokemon, idx) => {

@@ -5,12 +5,25 @@
 .details {
   width: 100%;
   min-height: 100vh;
+  overflow: hidden;
   max-width: unset;
   @include flex-center;
 
   @each $type in const.$POKEMON-TYPES {
     &[data-type=#{$type}] {
       background: f.get-pokemon-type-gradient($type);
+    }
+  }
+
+  .error {
+    &__heading {
+      &--main { 
+        color: var(--secondary-1); 
+        margin-bottom: 2rem;
+      }
+      &--sub  { 
+        color: var(--secondary-4); 
+      }
     }
   }
 }

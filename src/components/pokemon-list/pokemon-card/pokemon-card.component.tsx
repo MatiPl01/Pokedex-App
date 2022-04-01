@@ -51,8 +51,8 @@ class PokemonCard extends Component<IProps, IState> {
               <ul className="pokemon-card__types">{
                   data.types.map((type, idx) => {
                     return (
-                      <li className="pokemon-card__types-item" data-type={type} key={idx}>
-                        <p className="pokemon-card__type">{type}</p>
+                      <li className="pokemon-card__types-item type-box" data-type={type} key={idx}>
+                        <p className="pokemon-card__type type-box__text">{type}</p>
                       </li>
                     )
                   })

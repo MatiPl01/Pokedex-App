@@ -1,0 +1,22 @@
+@use '../utils/colors' as c;
+@use '../utils/shadows' as sh;
+@use '../utils/constants' as const;
+@use '../utils/functions' as f;
+@use '../utils/extends' as *;
+
+
+.type-box {
+  @extend %badge;
+
+  @each $type in const.$POKEMON-TYPES {
+    &[data-type=#{$type}] { 
+      background: f.get-pokemon-type-gradient($type);
+    }
+  }
+
+  &__text {
+    color: c.$white;
+    text-shadow: sh.$black-strong-medium,
+                sh.$black-strong-small;
+  }
+}

@@ -11,3 +11,15 @@
     opacity: .5;
   }
 }
+
+@keyframes loader-stroke {
+    to {
+        stroke-dashoffset: 150;
+    }
+}
+
+@keyframes loader-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

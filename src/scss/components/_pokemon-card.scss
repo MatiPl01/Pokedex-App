@@ -104,22 +104,8 @@
     gap: 1rem;
   }
 
-  &__types-item {
-    padding: .4rem .75rem;
-    border-top-left-radius: .5rem;
-    border-bottom-right-radius: .5rem;
-    box-shadow: sh.$black-light-medium;
-  }
-
-  &__type {
-    color: c.$white;
-    text-shadow: sh.$black-strong-medium,
-                 sh.$black-strong-small;
-  }
-
   @each $type in const.$POKEMON-TYPES {
-    &__figure[data-type=#{$type}],
-    &__types-item[data-type=#{$type}] { 
+    &__figure[data-type=#{$type}] { 
       background: f.get-pokemon-type-gradient($type);
     }
   }
