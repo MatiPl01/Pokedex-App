@@ -1,0 +1,105 @@
+$black: #000;
+$white: #fff;
+
+$gray-light-1: #fafafa;
+$gray-light-2: #dfdfdf;
+$gray-light-3: #ccc;
+$gray-light-4: #a3a3a3;
+
+$gray-dark-1: #111;
+$gray-dark-2: #222;
+$gray-dark-3: #333;
+$gray-dark-4: #575757;
+
+// $accent-primary: #2e80eb;
+// $accent-primary-dark: #3268b0;
+
+// $accent-secondary: #ffcb00;
+// $accent-secondary-dark: #c7a00d;
+
+// Theme (day / night) switch colors
+$theme-switch-sun: #ffe030;
+$theme-switch-crater: burlywood;
+$theme-switch-day-sky-light: aqua;
+$theme-switch-day-sky-dark: skyblue;
+$theme-switch-night-sky-light: rebeccapurple;
+$theme-switch-night-sky-dark: midnightblue;
+$theme-switch-cloud: whitesmoke;
+$theme-switch-star: lightgray;
+$theme-switch-star-glow: violet;
+
+// Pokemon types colors
+$pokemon-types: (
+  normal: (
+    primary: #c998a7,
+    secondary: #75515b
+  ),
+  fighting: (
+    primary: #ef6138,
+    secondary: #994025
+  ),
+  flying: (
+    primary: #93b2c7,
+    secondary: #4a677d
+  ),
+  poison: (
+    primary: #9b69d9,
+    secondary: #5e2d88
+  ),
+  ground: (
+    primary: #6e491f,
+    secondary: #a9702c
+  ),
+  rock: (
+    primary: #8b3e21,
+    secondary: #48180b
+  ),
+  bug: (
+    primary: #3b9950,
+    secondary: #1c4b27
+  ),
+  ghost: (
+    primary: #906790,
+    secondary: #33326d
+  ),
+  steel: (
+    primary: #42bd94,
+    secondary: #5f756d
+  ),
+  fire: (
+    primary: #fd4c5a,
+    secondary: #a92023
+  ),
+  water: (
+    primary: #86a8fc,
+    secondary: #1552e2
+  ),
+  grass: (
+    primary: #26cb4f,
+    secondary: #147b3d
+  ),
+  electric: (
+    primary: #fbfb70,
+    secondary: #e3e32d
+  ),
+  psychic: (
+    primary: #f81c91,
+    secondary: #a42a6c
+  ),
+  ice: (
+    primary: #d8f0fa,
+    secondary: #92c6e5
+  ),
+  dragon: (
+    primary: #61cad7,
+    secondary: #498b99
+  ),
+  dark: (
+    primary: #5a5979,
+    secondary: #040706
+  ),
+  fairy: (
+    primary: #ea1369,
+    secondary: #971944
+  )
+);

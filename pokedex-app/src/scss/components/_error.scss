@@ -1,0 +1,19 @@
+@use '../utils/mixins' as *;
+
+
+.error {
+  position: absolute;
+  inset: 0;
+  @include flex-center;
+
+  &__heading {
+    &--main { 
+      color: var(--secondary-1); 
+      margin-bottom: 2rem;
+      font-size: 4rem;
+    }
+    &--sub  { 
+      color: var(--secondary-4); 
+    }
+  }
+}

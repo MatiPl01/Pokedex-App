@@ -1,0 +1,39 @@
+@keyframes pokemon-jump {
+  50% {
+    transform: translateY(-25%);
+  }
+}
+
+@keyframes pokemon-shadow-grow {
+  50% {
+    width: 125%;
+    height: 30%;
+    opacity: .5;
+  }
+}
+
+@keyframes loader-stroke {
+    to {
+        stroke-dashoffset: 150;
+    }
+}
+
+@keyframes loader-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fade-in-left {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-right {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
