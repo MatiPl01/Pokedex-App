@@ -1,14 +1,14 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import { IPokemonData } from "../../../interfaces/IPokemonData";
-
+import { fetchPokemonData } from "../../../services/pokemon-data.service";
 
 interface IProps {
-  url: string
+  url: string;
 }
 
 interface IState {
-  pokemonData: IPokemonData | null
+  pokemonData: IPokemonData | null;
 }
 
 class PokemonCard extends Component<IProps, IState> {
@@ -26,26 +26,13 @@ class PokemonCard extends Component<IProps, IState> {
 
   private async loadPokemonData() {
     const { url } = this.props;
-    const data = await (await fetch(url)).json()
-
-    const pokemonData: IPokemonData = {
-      id: data.id,
-      name: data.name,
-      sprite: data.sprites.other.dream_world.front_default,
-      height: data.height,
-      weight: data.weight,
-      types: data.types.map((slot: any) => slot.type.name),
-      abilities: data.abilities.map((entry: any) => entry.ability.name),
-      // @ts-ignore
-      stats: Object.fromEntries(data.stats.map((entry: any) => [entry.stat.name, entry.base_stat]))
-    }
-
+    const pokemonData = await fetchPokemonData(url);
     this.setState({ pokemonData });
   }
 
   render() {
     const { pokemonData: data } = this.state;
-    if (!data) return; // Todo - add loading animation
+    if (!data) return;
 
     return (
         <article className="pokemon-card" key={data.id}>
@@ -64,7 +51,7 @@ class PokemonCard extends Component<IProps, IState> {
               <ul className="pokemon-card__types">{
                   data.types.map((type, idx) => {
                     return (
-                      <li className="pokemon-card__types-item" key={idx}>
+                      <li className="pokemon-card__types-item" data-type={type} key={idx}>
                         <p className="pokemon-card__type">{type}</p>
                       </li>
                     )

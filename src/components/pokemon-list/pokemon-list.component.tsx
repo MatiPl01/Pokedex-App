@@ -1,5 +1,7 @@
-import { Component } from "react";
+import { Component, Fragment } from "react";
 import PokemonCard from "./pokemon-card/pokemon-card.component"
+import SearchBox from './search-box/search-box.component'
+
 
 interface IProps {
   pokemons: {
@@ -8,21 +10,23 @@ interface IProps {
   }[]
 }
 
-
 class PokemonList extends Component<IProps> {
   render() {
     const { pokemons } = this.props;
 
     return (
-        <ul className="pokemon-list">
-          { pokemons.map((pokemon, idx) => {
-            return (
-              <li className="pokemon-list__item" key={idx}>
-                <PokemonCard url={pokemon.url} />
-              </li>
-            )
-          })}
-        </ul>
+      <Fragment>
+        <SearchBox />
+      <ul className="pokemon-list">
+        { pokemons.map((pokemon, idx) => {
+          return (
+            <li className="pokemon-list__item" key={idx}>
+              <PokemonCard url={pokemon.url} />
+            </li>
+          )
+        })}
+      </ul>
+      </Fragment>
     )
   }
 }

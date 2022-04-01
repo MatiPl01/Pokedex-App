@@ -1,4 +1,4 @@
-import { Component, Fragment } from "react";
+import { Component } from "react";
 import PokemonList from '../../components/pokemon-list/pokemon-list.component';
 
 
@@ -14,6 +14,7 @@ interface IState {
 class PokemonsView extends Component<IProps, IState> {
   private static readonly LOADED_POKEMONS_COUNT = 20;
   private currOffset = 0;
+  private isLoadingDisabled = false;
 
   constructor(props: IProps) {
     super(props);
@@ -34,6 +35,8 @@ class PokemonsView extends Component<IProps, IState> {
     const pokemons = json.results
     this.currOffset += count;
 
+    if (!pokemons?.length) this.isLoadingDisabled = true;
+    
     this.setState({
       pokemons: [
         ...this.state.pokemons,
@@ -44,10 +47,15 @@ class PokemonsView extends Component<IProps, IState> {
 
   render() {
     return (
-    <Fragment>
+    <main className="pokemons">
       <PokemonList pokemons={this.state.pokemons} />
-      <button className="button button--main" onClick={() => this.loadNewPokemons(PokemonsView.LOADED_POKEMONS_COUNT)}>Load more Pokemons</button>
-    </Fragment>
+      {this.isLoadingDisabled || (
+        <button className="button button--main" 
+                onClick={() => this.loadNewPokemons(PokemonsView.LOADED_POKEMONS_COUNT)}>
+          Load more Pokemons
+        </button>
+      )}
+    </main>
     )
   }
 }

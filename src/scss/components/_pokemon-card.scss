@@ -13,6 +13,7 @@
   box-shadow: sh.$black-normal-medium;
   background-color: var(--primary);
   transition: background-color .3s ease;
+  height: 100%;
 
   &__link {
     text-decoration: none;
@@ -116,14 +117,10 @@
                  sh.$black-strong-small;
   }
 
-  &__figure {
-    @each $type in const.$pokemon-types {
-      &[data-type=#{$type}] { 
-        &,
-        & + .pokemon-card__header .pokemon-card__types-item {
-          background: f.get-pokemon-type-gradient($type);
-        }
-      }
+  @each $type in const.$POKEMON-TYPES {
+    &__figure[data-type=#{$type}],
+    &__types-item[data-type=#{$type}] { 
+      background: f.get-pokemon-type-gradient($type);
     }
   }
 

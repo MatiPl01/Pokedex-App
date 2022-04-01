@@ -14,13 +14,14 @@
   transition: background-color .3s ease;
   height: sz.$nav-bar-height;
   box-shadow: sh.$black-normal-medium;
-  display: flex;
-  justify-content: space-between;
   padding: 0 5%;
 
-  &__group {
+  &__content {
+    height: 100%;
+    margin: 0 auto;
+    max-width: sz.$max-content-width;
+    width: 90%;
     display: flex;
-    gap: 5rem;
   }
 
   &__logo {
@@ -31,7 +32,7 @@
     text-decoration: none;
 
     &-icon {
-      height: 65%;
+      height: .65 * sz.$nav-bar-height;
     }
 
     &-text {
@@ -41,6 +42,11 @@
       transition: color .3s ease;
       font-weight: 700;
     }
+  }
+
+  &__links {
+    flex-grow: 1;
+    margin-left: 4rem;
   }
 
   &__links,
@@ -56,5 +62,26 @@
     font-size: 2rem;
     color: var(--secondary-2);
     transition: color .3s ease;
+  }
+
+  // Mobile nav-bar fixes
+  @include respond(phone) {
+    height: sz.$mobile-nav-bar-height;
+
+    &__content {
+      flex-wrap: wrap;
+    }
+
+    &__links {
+      order: 1;
+      width: 100%;
+      margin-left: 0;
+      justify-content: center;
+    }
+
+    &__settings {
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
   }
 }

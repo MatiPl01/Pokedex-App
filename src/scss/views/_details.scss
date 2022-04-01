@@ -1,0 +1,16 @@
+@use '../utils/mixins' as *;
+@use '../utils/constants' as const;
+@use '../utils/functions' as f;
+
+.details {
+  width: 100%;
+  min-height: 100vh;
+  max-width: unset;
+  @include flex-center;
+
+  @each $type in const.$POKEMON-TYPES {
+    &[data-type=#{$type}] {
+      background: f.get-pokemon-type-gradient($type);
+    }
+  }
+}

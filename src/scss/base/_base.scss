@@ -1,4 +1,5 @@
 @use '../utils/sizes' as sz;
+@use '../utils/mixins' as *;
 
 
 body {
@@ -6,10 +7,14 @@ body {
   transition: background-color .3s ease;
 }
 
-.main {
-  max-width: 120rem;
+main {
+  max-width: sz.$max-content-width;
   width: 80%;
   margin: 0 auto;
   padding-top: calc(sz.$nav-bar-height + 6rem);
   padding-bottom: 6rem;
+
+  @include respond(phone) {
+    padding-top: calc(sz.$mobile-nav-bar-height + 6rem);
+  }
 }
