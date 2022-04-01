@@ -1,8 +1,12 @@
 import { Component } from "react";
 import { Link } from 'react-router-dom';
+import { fetchPokemons } from '../../../services/pokemon-data.service';
+import { withRouter } from '../../../middlewares/with-router.middleware';
 
 
-interface IProps {}
+interface IProps {
+  navigate: (url: string) => {}
+}
 
 interface IPokemon {
   name: string,
@@ -11,7 +15,8 @@ interface IPokemon {
 
 interface IState {
   pokemons: IPokemon[],
-  filteredPokemons: IPokemon[]
+  search: string,
+  foundPokemons: IPokemon[]
 }
 
 class SearchBox extends Component<IProps, IState> {
@@ -22,7 +27,8 @@ class SearchBox extends Component<IProps, IState> {
 
     this.state = {
       pokemons: [],
-      filteredPokemons: []
+      search: '',
+      foundPokemons: []
     }
   }
 
@@ -31,37 +37,46 @@ class SearchBox extends Component<IProps, IState> {
   }
 
   private async loadPokemons() {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=${SearchBox.MAX_POKEMONS_COUNT}`)
-    const json = await response.json();
-
-    this.setState({
-      pokemons: json.results,
-      filteredPokemons: this.state.filteredPokemons
-    })
+    const pokemons = await fetchPokemons(SearchBox.MAX_POKEMONS_COUNT, 0);
+    this.setState({ ...this.state, pokemons });
   }
 
   private handleInput(e: React.ChangeEvent<HTMLInputElement>) {
-    const search = e.target.value.toLowerCase();
-    const { pokemons } = this.state
+    const { pokemons } = this.state;
+    const search = e.target.value.trim().toLowerCase();
+    const foundPokemons = search ? pokemons
+      .filter(pokemon => {
+        return pokemon.name.toLowerCase().includes(search);
+      })
+      .sort((a, b) => a.name.indexOf(search) - b.name.indexOf(search)) : [];
 
     this.setState({
-      pokemons,
-      filteredPokemons: search ? pokemons.filter(pokemon => {
-        return pokemon.name.toLowerCase().includes(search);
-      }).sort((a, b) => a.name.indexOf(search) - b.name.indexOf(search)) : []
-    })
+      ...this.state,
+      search,
+      foundPokemons
+    });
   }
 
   private getIdFromUrl(url: string): number {
     const parts = url.split('/')
     return parseInt(parts[parts.length - 2]);
   }
+
+  private handleSubmit(e: React.SyntheticEvent) {
+    e.preventDefault();
+    const { foundPokemons } = this.state;
+    
+    if (foundPokemons.length) {
+      const target = this.getIdFromUrl(foundPokemons[0].url);
+      this.props.navigate(`${target}`);
+    }
+  }
   
   render() {
-    const { filteredPokemons: pokemons } = this.state;
+    const { foundPokemons: pokemons } = this.state;
 
     return (
-      <article className="search-box">
+      <form className="search-box" onSubmit={this.handleSubmit.bind(this)} >
         <input className="search-box__input" type="text" name="search-pokemon" id="search-pokemon" placeholder="Search pokemon by name" onInput={this.handleInput.bind(this)} />
 
         <ul className="search-box__hints">
@@ -73,9 +88,9 @@ class SearchBox extends Component<IProps, IState> {
           )})
           }
         </ul>
-      </article>
+      </form>
     )
   }
 }
 
-export default SearchBox;
+export default withRouter(SearchBox);

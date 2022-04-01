@@ -1,12 +1,13 @@
+@use '../utils/animations' as *;
 @use '../utils/mixins' as *;
 @use '../utils/constants' as const;
 @use '../utils/functions' as f;
 
 .details {
-  width: 100%;
-  min-height: 100vh;
   overflow: hidden;
   max-width: unset;
+  width: 100%;
+  min-height: 100vh;
   @include flex-center;
 
   @each $type in const.$POKEMON-TYPES {
@@ -15,15 +16,13 @@
     }
   }
 
-  .error {
-    &__heading {
-      &--main { 
-        color: var(--secondary-1); 
-        margin-bottom: 2rem;
-      }
-      &--sub  { 
-        color: var(--secondary-4); 
-      }
+  .pokemon-details {
+    &__content {
+      animation: fade-in-left .5s;
+    }
+
+    &__image-wrapper {
+      animation: fade-in-right .5s;
     }
   }
 }

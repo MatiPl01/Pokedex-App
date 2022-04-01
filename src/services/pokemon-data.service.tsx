@@ -1,4 +1,5 @@
-import { IPokemonData } from "../interfaces/IPokemonData"
+import IPokemonData from "../interfaces/IPokemonData"
+import IPokemonLink from "../interfaces/IPokemonLink";
 
 
 export const fetchPokemonData = async (url: string): Promise<IPokemonData> => {
@@ -24,3 +25,9 @@ export const fetchPokemonData = async (url: string): Promise<IPokemonData> => {
   return pokemonData;
 }
 
+export const fetchPokemons = async (count: number, offset: number): Promise<IPokemonLink[]> => {
+  const query = `https://pokeapi.co/api/v2/pokemon?limit=${count}&offset=${offset}`;
+  const response = await fetch(query);
+  const json = await response.json();
+  return json.results;
+}

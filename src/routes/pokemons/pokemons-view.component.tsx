@@ -1,14 +1,12 @@
 import { Component } from "react";
 import PokemonList from '../../components/pokemon-list/pokemon-list.component';
-
+import IPokemonLink from '../../interfaces/IPokemonLink';
+import { fetchPokemons } from "../../services/pokemon-data.service";
 
 interface IProps {}
 
 interface IState {
-  pokemons: {
-    name: string,
-    url: string
-  }[]
+  pokemons: IPokemonLink[]
 }
 
 class PokemonsView extends Component<IProps, IState> {
@@ -29,18 +27,18 @@ class PokemonsView extends Component<IProps, IState> {
   }
 
   private async loadNewPokemons(count: number) {
-    const query = `https://pokeapi.co/api/v2/pokemon?limit=${count}&offset=${this.currOffset}`;
-    const response = await fetch(query);
-    const json = await response.json();
-    const pokemons = json.results
-    this.currOffset += count;
+    const newPokemons = await fetchPokemons(count, this.currOffset);
 
-    if (!pokemons?.length) this.isLoadingDisabled = true;
-    
+    if (!newPokemons?.length) {
+      this.isLoadingDisabled = true;
+      return;
+    }
+
+    this.currOffset += count;
     this.setState({
       pokemons: [
         ...this.state.pokemons,
-        ...pokemons
+        ...newPokemons
       ]
     });
   }

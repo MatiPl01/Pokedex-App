@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { IPokemonData } from "../../../interfaces/IPokemonData";
 import { fetchPokemonData } from "../../../services/pokemon-data.service";
+import IPokemonData from "../../../interfaces/IPokemonData";
 
 interface IProps {
   url: string;

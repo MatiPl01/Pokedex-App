@@ -17,15 +17,15 @@ class PokemonList extends Component<IProps> {
     return (
       <Fragment>
         <SearchBox />
-      <ul className="pokemon-list">
-        { pokemons.map((pokemon, idx) => {
-          return (
-            <li className="pokemon-list__item" key={idx}>
-              <PokemonCard url={pokemon.url} />
-            </li>
-          )
-        })}
-      </ul>
+        <ul className="pokemon-list">
+          { pokemons.map((pokemon, idx) => {
+            return (
+              <li className="pokemon-list__item" key={idx}>
+                <PokemonCard url={pokemon.url} />
+              </li>
+            )
+          })}
+        </ul>
       </Fragment>
     )
   }

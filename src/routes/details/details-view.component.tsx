@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchPokemonData } from '../../services/pokemon-data.service';
-import { IPokemonData } from '../../interfaces/IPokemonData';
+import IPokemonData from '../../interfaces/IPokemonData';
 import Loader from '../../components/loader/loader.component';
+import Error from '../../components/error/error.component';
+
 
 const DetailsView = () => {
   const { id } = useParams();
@@ -110,10 +112,7 @@ const DetailsView = () => {
 
   return (
     <main className="details">
-      <div className="error">
-        <h1 className="error__heading error__heading--main">Something went wrong!</h1>
-        <h2 className="error__heading error__heading--sub">Cannot fetch Pokemon data</h2>
-      </div>
+      <Error heading="Something went wrong!" message="Cannot fetch Pokemon's data" />
     </main>
   )
 }
